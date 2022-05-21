@@ -51,6 +51,7 @@ typedef struct usb_dev_handle pickit_dev;
 extern usb_dev_handle	*deviceHandle;
 #else		// Mac OSX
 
+#include <stdbool.h>
 #include <CoreFoundation/CoreFoundation.h>
 #include <IOKit/IOKitLib.h>
 #include <IOKit/IOCFPlugIn.h>

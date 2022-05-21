@@ -21,6 +21,35 @@ fork this repo and make your fork known to the world—please!—but
 beware that anything you do with it is subject to the highly
 restrictive, non-free license below.
 
+MacOS Usage
+-----------
+
+```console
+% git clone https://github.com/willglynn/pk2cmd.git
+% cd pk2cmd/pk2cmd/
+% make mac105
+/Applications/Xcode.app/Contents/Developer/usr/bin/make TARGET=mac105
+g++ -Wall -D_GNU_SOURCE -O2 -I/usr/local/include -DDARWIN -DMACOSX_HID -DMACOSX105 -o cmd_app.o  -c cmd_app.cpp
+g++ -Wall -D_GNU_SOURCE -O2 -I/usr/local/include -DDARWIN -DMACOSX_HID -DMACOSX105 -o DeviceData.o  -c DeviceData.cpp
+…
+g++ -Wall -D_GNU_SOURCE -O2 -I/usr/local/include -DDARWIN -DMACOSX_HID -DMACOSX105 -o pk2cmd cmd_app.o DeviceData.o DeviceFile.o ImportExportHex.o PICkitFunctions.o PIC32PE.o Pk2BootLoader.o pk2cmd.o stdafx.o pk2usbcommon.o pk2usbmacosx.o P24F_PE.o dsP33_PE.o strnatcmp.o -framework IOKit -framework CoreFoundation
+% ./pk2cmd
+                        PICkit 2 COMMAND LINE HELP
+Options              Description                              Default
+----------------------------------------------------------------------------
+A<value>             Set Vdd voltage                          Device Specific
+B<path>              Specify the path to PK2DeviceFile.dat    Searches PATH
+                                                              and calling dir
+…
+```
+
+This builds as of 2022 using MacOS 12 on an M1 processor:
+
+```console
+% file pk2cmd
+pk2cmd: Mach-O 64-bit executable arm64
+```
+
 Origin
 ------
 
